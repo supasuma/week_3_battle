@@ -1,4 +1,3 @@
-require_relative 'game'
 class Player
 
   attr_reader :name, :hit_points
