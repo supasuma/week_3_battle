@@ -1,4 +1,10 @@
-<h1> battle page </h1>
-<%="#{@game.player_1.name} attacked #{@game.player_2.name }"%>
+<h1> attack page </h1>
+<% if @game.current_player == @game.player_1 %>
+<%=@game.player_1.name%> attacked <%=@game.player_2.name%>
+<% else %>
+<%=@game.player_2.name%> attacked <%=@game.player_1.name%>
+<% end %>
 
-<a href="/play">OK</a>
+<form action="/switch" method="post">
+  <input type="submit" value="OK">
+</form>
