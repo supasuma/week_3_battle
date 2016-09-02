@@ -26,9 +26,8 @@ describe Game do
 
   describe '#switch' do
     it 'switches players' do
-      allow(player_2).to receive(:receive_damage)
-      game.attack(player_2)
-      expect(game.switch).to eq player_2
+      game.switch
+      expect(game.current_player).to eq player_2
     end
   end
 

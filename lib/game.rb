@@ -5,7 +5,6 @@ class Game
   def initialize(player_1, player_2)
     @players = [player_1, player_2]
     @current_player = player_1
-    @opponent = player_2
   end
 
   def attack(aPlayer)
@@ -21,13 +20,13 @@ class Game
   end
 
   def switch
-    if @current_player == player_1
-      @opponent = player_1
-      @current_player = player_2
-    else
-      @opponent = player_2
-      @current_player = player_1
-    end
+  @current_player = opponent_of(current_player)
   end
+
+private
+
+def opponent_of(the_player)
+  @players.select { |player| player != the_player }.first
+end
 
 end

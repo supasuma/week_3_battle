@@ -23,7 +23,7 @@ class Battle < Sinatra::Base
 
   get '/attack' do
     @game = $game
-    @game.attack(@game.opponent)
+    @game.attack(@game.player_2)
     @game.switch
     erb :attack
   end
