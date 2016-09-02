@@ -5,6 +5,7 @@ class Game
   def initialize(player_1, player_2)
     @players = [player_1, player_2]
     @current_player = player_1
+    @opponent = nil
   end
 
   def attack(aPlayer)
@@ -20,13 +21,22 @@ class Game
   end
 
   def switch
-  @current_player = opponent_of(current_player)
+    @current_player = opponent_of(current_player)
   end
 
-private
+  def opponent #need a unit test
+    if @current_player == player_1
+     @opponent = player_2
+   else
+     @opponent = player_1
+    end
+  end
 
-def opponent_of(the_player)
-  @players.select { |player| player != the_player }.first
-end
+  private
+
+  def opponent_of(the_player)
+    @players.select { |player| player != the_player }.first
+  end
+
 
 end
