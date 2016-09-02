@@ -7,9 +7,13 @@ class Game
     @current_player = player_1
   end
 
-  def attack(aPlayer)
-    aPlayer.receive_damage
-  end
+  # def attack(aPlayer)
+  #   aPlayer.receive_damage
+  # end
+
+  def attack
+    opponent_of(@current_player).receive_damage
+  end 
 
   def player_1
     @players.first
